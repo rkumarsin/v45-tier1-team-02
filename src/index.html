@@ -7,5 +7,45 @@
 </head>
 <body>
     
+    <h1> Where is the API ?</h1>
+
+    <p>
+        name: <span id="na"></span><br/>
+        id: <span id="idd"></span><br/>
+        nametype: <span id="typ"></span><br/>
+        recclass: <span id="clas"></span><br/>
+        mass: <span id="mas"></span><br/>
+        fall: <span id="fal"></span><br/>
+        year: <span id="yer"></span><br/>
+        reclat: <span id="rec"></span><br/>
+        reclong: <span id="long"></span><br/>
+        latitude: <span id="lat"></span><br/>
+        longitude: <span id="longi"></span><br/>
+    </p>
+
+    <script>
+        const url= 'https://data.nasa.gov/resource/gh4g-9sfh.json';
+          
+    async function getData() {
+        const response = await fetch(url); 
+        const data= await response.json();
+        const { name, id, nametype, recclass, mass, fall, year, reclat, reclong, latitude, longitude }= data;
+        document.getElementById('na').textContent= name;
+        document.getElementById('idd').textContent= id;
+        document.getElementById('typ').textContent= nametype;
+        document.getElementById('clas').textContent= recclass;
+        document.getElementById('mas').textContent= mass;
+        document.getElementById('fal').textContent= fall;
+        document.getElementById('yer').textContent= year;
+        document.getElementById('rec').textContent= reclat;
+        document.getElementById('long').textContent= reclong;
+        document.getElementById('lat').textContent= latitude;
+        document.getElementById('longi').textContent= longitude;
+
+    } 
+
+    getData(); 
+</script>
 </body>
+
 </html>
